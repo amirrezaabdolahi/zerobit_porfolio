@@ -1,18 +1,8 @@
 "use client";
 
-import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight } from "lucide-react";
 
 const links = [
-  {
-    label: "GitHub",
-    href: "#",
-    icon: Github,
-  },
-  {
-    label: "LinkedIn",
-    href: "#",
-    icon: Linkedin,
-  },
   {
     label: "Email",
     href: "mailto:hello@zerobit.dev",
