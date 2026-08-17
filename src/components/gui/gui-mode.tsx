@@ -3,6 +3,7 @@
 import GuiNavbar from "./gui-navbar";
 import GuiHero from "./gui-hero";
 import ProjectsSection from "./projects-section";
+import ServicesSection from "./services-section";
 
 export default function GuiMode() {
   return (
@@ -12,6 +13,7 @@ export default function GuiMode() {
       <main>
         <GuiHero />
         <ProjectsSection />
+        <ServicesSection />
       </main>
     </div>
   );
