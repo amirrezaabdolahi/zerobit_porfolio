@@ -2,11 +2,12 @@
 
 import { ArrowLeft, ArrowUpRight, Terminal } from "lucide-react";
 import { motion } from "framer-motion";
+import { PortfolioMode } from "@/types/mode";
 
 export default function ModeSelectorPage({
   onSelect,
 }: {
-  onSelect: (mode: "gui" | "command") => void;
+  onSelect: (mode: Exclude<PortfolioMode, "selector">) => void;
 }) {
   return (
     <main className="min-h-screen bg-background text-foreground">
