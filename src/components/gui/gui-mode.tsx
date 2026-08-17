@@ -4,6 +4,8 @@ import GuiNavbar from "./gui-navbar";
 import GuiHero from "./gui-hero";
 import ProjectsSection from "./projects-section";
 import ServicesSection from "./services-section";
+import AboutSection from "./about-section";
+import ContactSection from "./contact-section";
 
 export default function GuiMode() {
   return (
@@ -14,6 +16,8 @@ export default function GuiMode() {
         <GuiHero />
         <ProjectsSection />
         <ServicesSection />
+        <AboutSection />
+        <ContactSection />
       </main>
     </div>
   );
