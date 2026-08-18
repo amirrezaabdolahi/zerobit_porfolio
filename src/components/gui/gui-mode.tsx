@@ -6,7 +6,7 @@ import ProjectsSection from "./projects-section";
 import ServicesSection from "./services-section";
 import AboutSection from "./about-section";
 import ContactSection from "./contact-section";
-// import GuiFooter from "./footer-section";
+import GuiFooter from "./footer-section";
 
 export default function GuiMode() {
   return (
@@ -19,7 +19,7 @@ export default function GuiMode() {
         <ServicesSection />
         <AboutSection />
         <ContactSection />
-        {/*<GuiFooter />*/}
+        <GuiFooter />
       </main>
     </div>
   );

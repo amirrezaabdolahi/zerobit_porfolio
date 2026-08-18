@@ -1,12 +1,25 @@
 "use client";
 
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, GitBranch, Link } from "lucide-react";
 
 const links = [
+  {
+    label: "GitHub",
+    href: "https://github.com/zerobitdev",
+    icon: GitBranch,
+    color: "purple",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/zerobitdev",
+    icon: Link,
+    color: "blue",
+  },
   {
     label: "Email",
     href: "mailto:hello@zerobit.dev",
     icon: Mail,
+    color: "red",
   },
 ];
 
@@ -25,7 +38,7 @@ export default function GuiFooter() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            {links.map(({ label, href, icon: Icon }) => (
+            {links.map(({ label, href, icon: Icon, color }) => (
               <a
                 key={label}
                 href={href}
@@ -33,7 +46,7 @@ export default function GuiFooter() {
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
                 className="group flex items-center gap-2 rounded-lg border px-3 py-2 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
               >
-                <Icon size={14} />
+                <Icon size={14} className={`${color ? `text-${color}` : ""}`} />
 
                 {label}
 
