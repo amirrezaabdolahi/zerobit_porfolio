@@ -1,5 +1,6 @@
 "use client";
 
+import CommandMode from "@/components/command/command-mode";
 import GuiMode from "@/components/gui/gui-mode";
 import ModeSelectorPage from "@/components/shared/mode-selector";
 import ModeTransition from "@/components/shared/mode-transition";
@@ -12,11 +13,7 @@ export default function Home() {
   return (
     <ModeTransition mode={mode}>
       {mode === "gui" && <GuiMode />}
-      {mode === "command" && (
-        <main className="min-h-screen bg-background text-foreground">
-          <p>command</p>
-        </main>
-      )}
+      {mode === "command" && <CommandMode />}
       {mode === "selector" && (
         <main className="min-h-screen bg-background text-foreground">
           <ModeSelectorPage onSelect={setMode} />
