@@ -13,4 +13,4 @@ export type CommandResult = {
   content?: string;
 };
 
-export type CommandHandler = () => CommandResult;
+export type CommandHandler = (arg: string) => CommandResult;

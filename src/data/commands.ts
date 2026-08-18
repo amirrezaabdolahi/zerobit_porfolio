@@ -68,7 +68,7 @@ export const commands: Record<
 
   echo: {
     description: "Echo text",
-    execute: (args) => ({
+    execute: (args: string) => ({
       type: "text",
       content: args,
     }),
