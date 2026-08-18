@@ -7,6 +7,7 @@ import ServicesSection from "./services-section";
 import AboutSection from "./about-section";
 import ContactSection from "./contact-section";
 import GuiFooter from "./footer-section";
+import TeamSection from "./member-section";
 
 export default function GuiMode() {
   return (
@@ -16,6 +17,7 @@ export default function GuiMode() {
       <main>
         <GuiHero />
         <ProjectsSection />
+        <TeamSection />
         <ServicesSection />
         <AboutSection />
         <ContactSection />
