@@ -8,6 +8,7 @@ import AboutSection from "./about-section";
 import ContactSection from "./contact-section";
 import GuiFooter from "./footer-section";
 import TeamSection from "./member-section";
+import StackSection from "./stack-section";
 
 export default function GuiMode() {
   return (
@@ -18,6 +19,7 @@ export default function GuiMode() {
         <GuiHero />
         <ProjectsSection />
         <TeamSection />
+        <StackSection />
         <ServicesSection />
         <AboutSection />
         <ContactSection />
