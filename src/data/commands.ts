@@ -66,6 +66,14 @@ export const commands: Record<
     }),
   },
 
+  echo: {
+    description: "Echo text",
+    execute: (args) => ({
+      type: "text",
+      content: args,
+    }),
+  },
+
   clear: {
     description: "Clear terminal",
     execute: () => ({

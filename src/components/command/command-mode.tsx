@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { parseCommand } from "@/lib/command-parser";
 
@@ -14,6 +14,7 @@ export default function CommandMode() {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<TerminalLine[]>([]);
   const [lineId, setLineId] = useState(0);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = () => {
     const command = input.trim();
@@ -64,7 +65,12 @@ export default function CommandMode() {
 
         {/* Terminal Body */}
 
-        <div className="flex flex-1 flex-col overflow-y-auto p-5 font-mono text-sm sm:p-8">
+        <div
+          className="flex flex-1 flex-col overflow-y-auto p-5 font-mono text-sm sm:p-8 overflow-hidden"
+          onClick={() => {
+            inputRef.current?.focus();
+          }}
+        >
           <div className="mb-6">
             <p className="text-muted-foreground">Welcome to ZeroBit.</p>
 
@@ -78,7 +84,7 @@ export default function CommandMode() {
             <div key={line.id} className="mb-5">
               <div className="flex gap-2">
                 <span className="text-muted-foreground">
-                  zerobit@portfolio:~$
+                  <span className="text-success">zerobit</span>@portfolio:~$
                 </span>
 
                 <span>{line.command}</span>
@@ -94,13 +100,14 @@ export default function CommandMode() {
 
           {/* Input */}
 
-          <div className="mt-auto flex gap-2">
+          <div className="flex gap-2">
             <span className="shrink-0 text-muted-foreground">
-              zerobit@portfolio:~$
+              <span className="text-success">zerobit</span>@portfolio:~$
             </span>
 
             <input
               autoFocus
+              ref={inputRef}
               value={input}
               onChange={(event) => setInput(event.target.value)}
               onKeyDown={(event) => {
@@ -112,8 +119,6 @@ export default function CommandMode() {
               spellCheck={false}
               autoComplete="off"
             />
-
-            <span className="animate-pulse">▋</span>
           </div>
         </div>
       </div>
