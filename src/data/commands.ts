@@ -23,6 +23,8 @@ export const commands: Record<
         "clear      Clear terminal",
         "gui        Switch to GUI mode",
         "echo       Echo text",
+        "pwd        Print working directory",
+        "ls         List files in current directory",
       ].join("\n"),
     }),
   },
@@ -80,6 +82,30 @@ export const commands: Record<
     description: "Switch to GUI mode",
     execute: () => ({
       type: "gui",
+    }),
+  },
+
+  pwd: {
+    description: "Print working directory",
+    execute: () => ({
+      type: "text",
+      content: "/home/zerobit",
+    }),
+  },
+
+  ls: {
+    description: "List files in current directory",
+    execute: () => ({
+      type: "text",
+      content: "",
+    }),
+  },
+
+  mkdir: {
+    description: "Create a new directory",
+    execute: (args: string) => ({
+      type: "mkdir",
+      content: args,
     }),
   },
 

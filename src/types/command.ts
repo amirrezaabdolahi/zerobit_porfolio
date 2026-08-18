@@ -7,10 +7,13 @@ export type CommandName =
   | "stack"
   | "clear"
   | "gui"
+  | "pwd"
+  | "ls"
+  | "mkdir"
   | "echo";
 
 export type CommandResult = {
-  type: "text" | "clear" | "gui";
+  type: "text" | "clear" | "gui" | "ls" | "mkdir";
   content?: string;
 };
 

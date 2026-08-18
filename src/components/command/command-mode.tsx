@@ -1,8 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { parseCommand } from "@/lib/command-parser";
+import { commands } from "@/data/commands";
+import { getSuggestions } from "@/lib/command-intelisen";
 
 type TerminalLine = {
   id: number;
@@ -18,7 +20,11 @@ export default function CommandMode({
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<TerminalLine[]>([]);
   const [lineId, setLineId] = useState(0);
+  const [ls, setLs] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
+  const intelisen = input.trim().length > 0 ? getSuggestions(input) : [];
+
+  console.log(intelisen);
 
   const handleSubmit = () => {
     const command = input.trim();
@@ -43,6 +49,11 @@ export default function CommandMode({
       setInput("");
       return;
     }
+
+    // if (result.type === "mkdir") {
+    //   setLs((prev) => [...prev, result.content]);
+    //   return;
+    // }
 
     setHistory((current) => [
       ...current,
@@ -126,6 +137,12 @@ export default function CommandMode({
               onKeyDown={(event) => {
                 if (event.key === "Enter") {
                   handleSubmit();
+                }
+                if (event.key === "Tab") {
+                  event.preventDefault();
+                  if (intelisen.length > 0) {
+                    setInput(intelisen[0]);
+                  }
                 }
               }}
               className="min-w-0 flex-1 bg-transparent outline-none"
