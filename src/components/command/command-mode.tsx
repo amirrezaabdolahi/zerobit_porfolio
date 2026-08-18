@@ -10,7 +10,11 @@ type TerminalLine = {
   output?: string;
 };
 
-export default function CommandMode() {
+export default function CommandMode({
+  setMode,
+}: {
+  setMode: (mode: "gui" | "command" | "selector") => void;
+}) {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<TerminalLine[]>([]);
   const [lineId, setLineId] = useState(0);
@@ -26,6 +30,11 @@ export default function CommandMode() {
     const result = parseCommand(command);
 
     if (!result) {
+      return;
+    }
+
+    if (result.type === "gui") {
+      setMode("gui");
       return;
     }
 
@@ -77,6 +86,10 @@ export default function CommandMode() {
             <p className="mt-1 text-muted-foreground">
               Type <span className="text-foreground">help</span> to see
               available commands.
+            </p>
+            <p className="mt-1 text-muted-foreground">
+              or type <span className="text-foreground">gui</span> to switch to
+              GUI mode.
             </p>
           </div>
 

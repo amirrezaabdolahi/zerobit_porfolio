@@ -2,7 +2,11 @@
 
 import { ArrowUpRight, Terminal } from "lucide-react";
 
-export default function GuiNavbar() {
+export default function GuiNavbar({
+  setMode,
+}: {
+  setMode: (mode: "gui" | "command" | "selector") => void;
+}) {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto max-w-7xl px-6 py-5">
@@ -50,7 +54,12 @@ export default function GuiNavbar() {
           >
             <Terminal size={15} />
 
-            <span className="hidden sm:inline">Command</span>
+            <span
+              className="hidden sm:inline"
+              onClick={() => setMode("command")}
+            >
+              Command
+            </span>
 
             <ArrowUpRight
               size={14}

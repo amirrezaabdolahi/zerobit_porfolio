@@ -12,8 +12,8 @@ export default function Home() {
 
   return (
     <ModeTransition mode={mode}>
-      {mode === "gui" && <GuiMode />}
-      {mode === "command" && <CommandMode />}
+      {mode === "gui" && <GuiMode setMode={setMode} />}
+      {mode === "command" && <CommandMode setMode={setMode} />}
       {mode === "selector" && (
         <main className="min-h-screen bg-background text-foreground">
           <ModeSelectorPage onSelect={setMode} />

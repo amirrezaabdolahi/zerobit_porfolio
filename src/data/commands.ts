@@ -21,6 +21,8 @@ export const commands: Record<
         "team       Meet the team",
         "stack      View our technology stack",
         "clear      Clear terminal",
+        "gui        Switch to GUI mode",
+        "echo       Echo text",
       ].join("\n"),
     }),
   },
@@ -71,6 +73,13 @@ export const commands: Record<
     execute: (args: string) => ({
       type: "text",
       content: args,
+    }),
+  },
+
+  gui: {
+    description: "Switch to GUI mode",
+    execute: () => ({
+      type: "gui",
     }),
   },
 

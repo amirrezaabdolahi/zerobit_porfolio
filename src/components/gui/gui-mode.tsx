@@ -10,10 +10,14 @@ import GuiFooter from "./footer-section";
 import TeamSection from "./member-section";
 import StackSection from "./stack-section";
 
-export default function GuiMode() {
+export default function GuiMode({
+  setMode,
+}: {
+  setMode: (mode: "gui" | "command" | "selector") => void;
+}) {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <GuiNavbar />
+      <GuiNavbar setMode={setMode} />
 
       <main>
         <GuiHero />

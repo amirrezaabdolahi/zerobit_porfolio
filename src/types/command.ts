@@ -6,10 +6,11 @@ export type CommandName =
   | "team"
   | "stack"
   | "clear"
+  | "gui"
   | "echo";
 
 export type CommandResult = {
-  type: "text" | "clear";
+  type: "text" | "clear" | "gui";
   content?: string;
 };
 
